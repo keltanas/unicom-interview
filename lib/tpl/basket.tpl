@@ -1,5 +1,5 @@
 <!-- basket -->
-<h2>Cart</h2>
+<h2>Basket</h2>
 
 <div class="b-basket-positions"><span>Empty...</span></div>
 
