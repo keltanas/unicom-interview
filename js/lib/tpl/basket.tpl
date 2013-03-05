@@ -3,11 +3,6 @@
 
 <div class="b-basket-positions"><span>Empty...</span></div>
 
-<!--<div class="row-fluid">
-    <span class="span9">Product3</span>
-    <span class="span3">1 <a href="#" class="icon icon-remove"></a></span>
-</div>-->
-
 <hr>
 <p>Total: <%= total %></p>
 <p>Sum: <%= sum %></p>

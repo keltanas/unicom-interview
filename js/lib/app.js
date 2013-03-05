@@ -3,7 +3,7 @@
  * @author: keltanas
  */
 require.config({
-    "baseUrl" : "/lib",
+    "baseUrl" : "/js/lib",
     "paths" : {
         "vend" : "../vendor"
     },

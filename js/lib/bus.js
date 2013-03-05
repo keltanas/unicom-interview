@@ -1,5 +1,5 @@
 /**
- * Common application avents bus
+ * Common application events bus
  * @author: Nikolay Ermin <keltanas@gmail.com>
  */
 define("bus",[
