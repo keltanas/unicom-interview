@@ -12,6 +12,7 @@ define("view/position",[
         "events" : {
             "click a.icon-remove" : "removeFromCart"
         },
+        // Удаление из корзины
         "removeFromCart" : function(){
             if ( this.options.bus ) {
                 this.options.bus.trigger('product.remove.cart', this.model);

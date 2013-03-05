@@ -8,7 +8,7 @@ define("view/catalog",[
     "view/product",
     'text!tpl/catalog.tpl'
 ],function(Backbone,Product,ProductView,tpl) {
-
+    // Простая коллекция
     var ProductList = Backbone.Collection.extend({
         "model" : Product
     });
@@ -17,6 +17,7 @@ define("view/catalog",[
         "collection" : new ProductList(),
 
         "initialize" : function() {
+            // Отрисовать при добавлении товара в каталог
             this.collection.on('add', this.render, this);
         },
 

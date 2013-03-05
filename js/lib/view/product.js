@@ -12,6 +12,7 @@ define("view/product",[
         "events" : {
             "click button" : "addToCart"
         },
+        // Добавить в корзину
         "addToCart" : function(){
             if ( this.options.bus ) {
                 this.options.bus.trigger('product.add.cart', this.model);

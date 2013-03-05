@@ -35,7 +35,9 @@ require.config({
         CatalogView,
         BasketView
     ){
+        // Во все представления будем внедрять общую шину событий "bus"
         $(document).ready(function(){
+            // Создадим и наполним каталог
             var catalog = new CatalogView({
                 "el" : $('#catalog'),
                 "bus": bus
@@ -45,6 +47,7 @@ require.config({
             catalog.collection.add({"name":"Product3","price":"300"},{silent:true});
             catalog.collection.add({"name":"Product4","price":"400"});
 
+            // Создадим корзину
             var basket = new BasketView({
                 "el" : $("#basket"),
                 "bus": bus

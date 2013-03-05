@@ -10,11 +10,10 @@ define("view/basket",[
     "text!tpl/basket.tpl"
 ],function( Backbone, Position, BasketList, PositionView, tpl ){
 
-    var positions = new BasketList();
-
     return Backbone.View.extend({
 
-        "collection" : positions,
+        // будем отражать коллекцию
+        "collection" : new BasketList(),
 
         "initialize" : function() {
 
