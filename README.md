@@ -3,4 +3,4 @@ unicom-interview
 
 JavaScript basket on requirejs && backbone.
 
-You can viewing [demo app](https://github.com/keltanas/unicom-interview).
+You can viewing [demo app](http://unicom.siteforever.ru).
