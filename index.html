@@ -3,73 +3,22 @@
 <head>
   <title>Basket</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
     <div class="container">
         <h1>Basket</h1>
         <div class="row-fluid">
             <div class="span9">
-                <h2>Products</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th class="span8">Name</th>
-                            <th class="span2">Price</th>
-                            <th class="span2"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="b-product">
-                            <td>Product 1</td>
-                            <td>
-                                <span class="b-product-price">100</span>
-                            </td>
-                            <td>
-                                <button class="btn btn-small" type="button"><i class="icon icon-shopping-cart"></i> add</button>
-                            </td>
-                        </tr>
-                        <tr class="b-product">
-                            <td>Product 2</td>
-                            <td>
-                                <span class="b-product-price">200</span>
-                            </td>
-                            <td>
-                                <button class="btn btn-small" type="button"><i class="icon icon-shopping-cart"></i> add</button>
-                            </td>
-                        </tr>
-                        <tr class="b-product">
-                            <td>Product 3</td>
-                            <td>
-                                <span class="b-product-price">300</span>
-                            </td>
-                            <td>
-                                <button class="btn btn-small" type="button"><i class="icon icon-shopping-cart"></i> add</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div id="catalog"></div>
             </div>
             <div class="span3">
-                <div class="well">
-                    <h2>Cart</h2>
-                    <div class="row-fluid"><span class="span12">Empty...</span></div>
-                    <div class="row-fluid">
-                        <span class="span9">Product1</span>
-                        <span class="span3">2 <a href="#" class="icon icon-remove"></a></span>
-                    </div>
-                    <div class="row-fluid">
-                        <span class="span9">Product3</span>
-                        <span class="span3">1 <a href="#" class="icon icon-remove"></a></span>
-                    </div>
-                    <hr>
-                    <p>Total: 3</p>
-                    <p>Sum: 500</p>
-                    <button class="btn"><i class="icon icon-download-alt"></i> Save</button>
-                    <button class="btn"><i class="icon icon-ban-circle"></i> Clear</button>
-                </div>
+                <div class="well" id="basket"></div>
             </div>
         </div>
     </div>
+
+    <script src="/vendor/require-jquery.js" type="text/javascript"></script>
+    <script src="/lib/app.js" type="text/javascript"></script>
 </body>
 </html>
