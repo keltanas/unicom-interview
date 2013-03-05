@@ -15,7 +15,7 @@ $app = new Silex\Application();
 $database = 'database.json';
 
 // Save basket
-$app->put('/basket', function( Request $request ) use ( $database ) {
+$app->post('/basket', function( Request $request ) use ( $database ) {
     file_put_contents( 'database.json', $request->getContent() );
     return new Response( 'Save successfully'/*, 401*/ );
 });

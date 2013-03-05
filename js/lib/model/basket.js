@@ -11,7 +11,7 @@ define("model/basket",[
         "url" : "/basket",
         // Поскольку коллекции не умеют сохранятся, определим этот метод
         "save" : function() {
-            $.ajax({ type:'PUT', url: '/basket', data: JSON.stringify( this )})
+            $.ajax({ type:'POST', url: '/basket', data: JSON.stringify( this )})
                 .done(function(msg){
                     alert( msg );
                 })
