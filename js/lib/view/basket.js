@@ -5,25 +5,26 @@
 define("view/basket",[
     "vend/backbone",
     "model/position",
-    "model/position_list",
+    "model/basket",
     "view/position",
     "text!tpl/basket.tpl"
-],function( Backbone, Position, PositionList, PositionView, tpl ){
+],function( Backbone, Position, BasketList, PositionView, tpl ){
 
-    var positions = new PositionList();
-
-    positions.on("change add remove reset",function(){
-        // Сохраняем в localStorage. Для быстроты разработки не используем обертку
-        localStorage && localStorage.setItem('basket.collection', JSON.stringify(this));
-    },positions);
+    var positions = new BasketList();
 
     return Backbone.View.extend({
 
         "collection" : positions,
 
         "initialize" : function() {
-            // Инициализация из стораджа
+
+            // Инициализация из localStorage
             this.collection.reset(JSON.parse( localStorage && localStorage.getItem('basket.collection') || '[]' ));
+
+            // Сохраняем в localStorage
+            this.collection.on("change add remove reset",function(){
+                localStorage && localStorage.setItem('basket.collection', JSON.stringify(this));
+            },this.collection);
 
             // добавление в корзину
             this.options.bus.on('product.add.cart', function(product){
@@ -77,13 +78,30 @@ define("view/basket",[
         },
 
         "events" : {
-            "click button.btn-reset" : "basket_reset"
+            "click button.btn-reset" : "basket_reset",
+            "click button.btn-save" : "basket_save",
+            "click button.btn-load" : "basket_load"
         },
 
         // очищаем корзину
         "basket_reset" : function(){
             this.collection.reset();
             this.render();
+        },
+
+        // сохраняем на сервер
+        "basket_save" : function(){
+            this.collection.save();
+        },
+
+        // загрузка с сервера
+        "basket_load" : function(){
+            this.collection.fetch({
+                success: $.proxy(this.render,this),
+                error: function(collection,Response){
+                    alert(Response.responseText);
+                }
+            });
         }
     });
 });
