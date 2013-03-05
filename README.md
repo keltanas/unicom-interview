@@ -1,6 +1,6 @@
 unicom-interview
 ================
 
-JavaScript basket
+JavaScript basket on requirejs && backbone.
 
-You can viewing [https://github.com/keltanas/unicom-interview|demo application].
+You can viewing [demo app](https://github.com/keltanas/unicom-interview).
