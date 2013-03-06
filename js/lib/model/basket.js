@@ -9,6 +9,9 @@ define("model/basket",[
     return Backbone.Collection.extend({
         "model" : Position,
         "url" : "/basket",
+        "comparator" : function(obj) {
+            return obj.get("name");
+        },
         // Поскольку коллекции не умеют сохранятся, определим этот метод
         "save" : function() {
             $.ajax({ type:'POST', url: '/basket', data: JSON.stringify( this )})
