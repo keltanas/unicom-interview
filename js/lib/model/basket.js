@@ -24,12 +24,8 @@ define("model/basket",[
             }, options);
 
             $.ajax({ type:'POST', url: '/basket', data: JSON.stringify( this )})
-                .done(function(msg){
-                    options.success.apply( this, arguments );
-                })
-                .error(function(Response){
-                    options.error.apply( this, arguments );
-                });
+                .done(options.success)
+                .error(options.error);
         },
 
         // Всего товаров в корзине
