@@ -7,20 +7,43 @@ define("model/basket",[
     "model/position"
 ],function( Backbone, Position ){
     return Backbone.Collection.extend({
+
         "model" : Position,
+
         "url" : "/basket",
+
+        // Отсортированная коллекция
         "comparator" : function(obj) {
             return obj.get("name");
         },
+
         // Поскольку коллекции не умеют сохранятся, определим этот метод
-        "save" : function() {
+        "save" : function(options) {
+            options = $.extend(true, {
+                success: function() {}, error: function(){}
+            }, options);
+
             $.ajax({ type:'POST', url: '/basket', data: JSON.stringify( this )})
                 .done(function(msg){
-                    alert( msg );
+                    options.success.apply( this, arguments );
                 })
                 .error(function(Response){
-                    alert( Response.responseText );
+                    options.error.apply( this, arguments );
                 });
+        },
+
+        // Всего товаров в корзине
+        "total" : function() {
+            return this.reduce(function(memo,position){
+                return memo + position.get('count');
+            },0);
+        },
+
+        // Сумма товаров в корзине
+        "sum" : function() {
+            return this.reduce(function(memo,position){
+                return memo + position.get('count') * position.get('price');
+            },0);
         }
     });
 });

@@ -54,12 +54,8 @@ define("view/basket",[
             // Основной шаблон корзины
             this.$el.find('*').remove().end().append(
                 _.template( tpl, {
-                    total: this.collection.reduce(function(memo,position){
-                        return memo + position.get('count');
-                    },0),
-                    sum: this.collection.reduce(function(memo,position){
-                        return memo + position.get('count') * position.get('price');
-                    },0)
+                    total: this.collection.total(),
+                    sum: this.collection.sum()
                 } )
             );
             // Добавляем товары
@@ -90,7 +86,14 @@ define("view/basket",[
 
         // сохраняем на сервер
         "basket_save" : function(){
-            this.collection.save();
+            this.collection.save({
+                success: function(msg){
+                    alert(msg);
+                },
+                error: function(collection,Response){
+                    alert(Response.responseText);
+                }
+            });
         },
 
         // загрузка с сервера
