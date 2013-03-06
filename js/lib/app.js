@@ -22,7 +22,6 @@ require.config({
     "deps": [
         "jquery",
         "vend/backbone",
-        "vend/bootstrap/js/bootstrap",
         "bus",
         "view/catalog",
         "view/basket"
@@ -30,7 +29,6 @@ require.config({
     "callback" : function(
         $,
         Backbone,
-        undefined,
         bus,
         CatalogView,
         BasketView
