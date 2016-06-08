@@ -87,11 +87,11 @@ define("view/basket",[
         // сохраняем на сервер
         "basket_save" : function(){
             this.collection.save({
-                success: function(msg){
-                    alert(msg);
+                success: function(response){
+                    console.log(response.message);
                 },
                 error: function(collection,Response){
-                    alert(Response.responseText);
+                    console.log(Response.responseText);
                 }
             });
         },
@@ -99,9 +99,9 @@ define("view/basket",[
         // загрузка с сервера
         "basket_load" : function(){
             this.collection.fetch({
-                success: $.proxy(this.render,this),
+                success: _.bind(this.render,this),
                 error: function(collection,Response){
-                    alert(Response.responseText);
+                    console.log(Response.responseText);
                 }
             });
         }
